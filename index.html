@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.container').mouseenter(function () {
+                $('.card').stop().animate({
+                    top: '-90px'
+                }, 'slow');
+            }).mouseleave(function () {
+                $('.card').stop().animate({
+                    top: 0
+                }, 'slow');
+            });
+        $('#clickMeButton').click(function () {
+            // Display the GIF (replace 'your-gif-url.gif' with the actual URL of your GIF)
+            $('#gifContainer').html('<img src="assets/yay-icegif-5.gif"  alt="GIF" style="width: 200px; height: auto;">');
+        });
+        function updateCountdown() {
+                var currentDate = new Date();
+                var valentinesDay = new Date("2024-02-14"); // Set the date for Valentine's Day
+
+                var timeDifference = valentinesDay - currentDate;
+
+                var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+                $('#timer').html(days + "d " + hours + "h " + minutes + "m " + seconds + "s");
+            }
+
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+    });
+        
+    </script>
+</head>
+<body>
+    <div id="countdown">
+        <h2>Countdown to Valentine's Day</h2>
+        <div id="timer"></div>
+    </div>
+    <h1>Dear Miss Igbinobaro Osayamen Juanita</h1>
+    <div class="container">  
+    <div class="valentines">
+      <div class="envelope"></div>
+      <div class="front"></div>
+      <div class="card">
+      <div class="text">Would you</br> be my </br>Valentine?</div>
+      <div class="heart"> </div>
+      </div>
+      <div class="hearts">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+        <div class="four"></div>
+        <div class="five"></div>
+      </div>
+    </div>
+    </div>
+    <div class="shadow"></div>
+    </div>
+    <div id="buttonContainer">
+        <button id="clickMeButton">You must click yes</button>
+    </div>
+    <div id="gifContainer"></div>
+</body>
+</html>
